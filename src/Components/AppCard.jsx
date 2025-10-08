@@ -1,19 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
+
 
 const AppCard = ({ app }) => {
 
-    const navigate = useNavigate();
+    
 
-    const handleClick = () =>{
-        navigate(`/app/${app.id}`);
-    }
-
+    
 
   return (
     
     <div>
-      <div className="card bg-base-100 border shadow-sm hover:scale-105 transition ease-in-out p-3" onClick={handleClick}>
+        <Link to={`/allApps/${app.id}`}>
+        <div className="card bg-base-100 border shadow-sm hover:scale-105 transition ease-in-out p-3" onClick={`/allApps/${app.id}`}>
         <figure className="h-52 overflow-hidden">
           <img
           className="w-full object-cover"
@@ -33,6 +32,8 @@ const AppCard = ({ app }) => {
           </div>
         </div>
       </div>
+        </Link>
+      
     </div>
   );
 };
