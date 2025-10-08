@@ -42,7 +42,10 @@ const handleRemove = (id) =>{
 
   return (
     <div>
-      Installed app:{installedApps.length}
+      <div className="flex flex-col justify-center items-center mb-5 p-2">
+        <h2 className="text-2xl font-bold">All Installed Applications</h2>
+        <p><small>Explore All Apps on the Market developed by us. We code for Millions</small></p>
+      </div>
       <div className="flex justify-between items-center p-4">
         <h1 className="text-xl font-semibold">
           All Products{" "}

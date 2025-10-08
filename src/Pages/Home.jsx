@@ -14,7 +14,7 @@ const Home = () => {
       <Header></Header>
       <State></State>
       <div className="flex flex-col justify-center items-center mb-5 p-2">
-        <h2 className="font-bold">Trending Apps</h2>
+        <h2 className="text-2xl font-bold">Trending Apps</h2>
         <p><small>Explore All Trending Apps on the Market developed by us</small></p>
       </div>
       <div className="grid grid-cols-4 gap-3">

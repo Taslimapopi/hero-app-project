@@ -10,13 +10,15 @@ import Home from './Pages/Home.jsx';
 import AllApps from './Pages/AllApps.jsx';
 import InstallesApp from './Pages/InstallesApp.jsx';
 import AppDetails from './Pages/AppDetails.jsx';
+import LoadingSpinner from './Components/loadingSpinner.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayouts,
     errorElement: <ErrorPage/>,
-    hydrateFallbackElement: <span>loading... </span>,
+    hydrateFallbackElement: <LoadingSpinner/>
+,
     children:[
       {
         index: true,

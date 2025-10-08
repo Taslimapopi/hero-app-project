@@ -13,6 +13,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { LoaderPinwheelIcon } from "lucide-react";
+import LoadingSpinner from "../Components/loadingSpinner";
 
 const AppDetails = () => {
   const { id } = useParams();
@@ -20,7 +22,7 @@ const AppDetails = () => {
   const [install, setInstall] = useState(false);
 
   const app = apps.find((p) => String(p.id) === id);
-  if (loading) return <p>loadi ng....</p>;
+  if (loading) return <LoadingSpinner></LoadingSpinner>;
   const {
     title,
     image,
