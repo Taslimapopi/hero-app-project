@@ -3,6 +3,7 @@ import useApps from "../Hooks/useApps";
 import AppCard from "../Components/AppCard";
 import Header from "../Components/Header";
 import State from "../Components/State";
+import { Link } from "react-router";
 
 const Home = () => {
   const { apps } = useApps();
@@ -22,6 +23,12 @@ const Home = () => {
           
         ))}
       </div>
+      <div className="flex justify-center m-5 items-center">
+        <Link to='/allApps'>
+      <button className="btn primary ">Show All</button>
+      </Link>
+      </div>
+      
     </div>
   );
 };

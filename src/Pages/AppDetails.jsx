@@ -1,11 +1,23 @@
 import { useParams } from "react-router";
 import useApps from "../Hooks/useApps";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import {
+  BarChart,
+  Bar,
+  Rectangle,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const AppDetails = () => {
   const { id } = useParams();
   const { apps, loading } = useApps();
-  const [install, setInstall] = useState
+  const [install, setInstall] = useState(false);
 
   const app = apps.find((p) => String(p.id) === id);
   if (loading) return <p>loadi ng....</p>;
@@ -27,10 +39,12 @@ const AppDetails = () => {
       const isDuplicate = existingApps.some((p) => p.id === app.id);
       if (isDuplicate) return alert("already installed");
       updatedApps = [...existingApps, app];
-    } else{
-       updatedApps.push(app);
+    } else {
+      updatedApps.push(app);
     }
     localStorage.setItem("installedApp", JSON.stringify(updatedApps));
+    setInstall(true);
+    toast("App Successfully installed!")
   };
 
   return (
@@ -49,15 +63,37 @@ const AppDetails = () => {
           </div>
           <div className="card-actions justify-end">
             <button className="btn btn-primary" onClick={handleInstalledApp}>
-              Installed Now ({size}MB)
+              {install ? "Installed" : `Install Now (${size}MB)`}
             </button>
           </div>
         </div>
       </div>
+
+      <div>
+        <BarChart
+          width={600}
+          height={400}
+          data={[...app.ratings].reverse()}
+          layout="vertical"
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis type="number" />
+          <YAxis dataKey="name" type="category" />
+          <Tooltip />
+          <Bar
+            dataKey="count"
+            fill="#8884d8"
+            activeBar={<Rectangle fill="pink" stroke="blue" />}
+          />
+        </BarChart>
+      </div>
+
       <div>
         <h1 className="text-center font-semibold p-5">Description:</h1>
         <p className="text-center">{description}</p>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };
