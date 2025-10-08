@@ -1,9 +1,11 @@
 import { useParams } from "react-router";
 import useApps from "../Hooks/useApps";
+import { useState } from "react";
 
 const AppDetails = () => {
   const { id } = useParams();
   const { apps, loading } = useApps();
+  const [install, setInstall] = useState
 
   const app = apps.find((p) => String(p.id) === id);
   if (loading) return <p>loadi ng....</p>;
