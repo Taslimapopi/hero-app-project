@@ -52,26 +52,6 @@ const AppDetails = () => {
 
   return (
     <div className=" bg-[#71717A10]">
-      {/* <div className="card card-side bg-base-100 shadow-sm">
-        <figure>
-          <img className="w-50 h-50" src={image} alt="Movie" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">{title}</h2>
-          <p>{companyName}</p>
-          <div className="flex justify-center items-center gap-1">
-            <p>{downloads}</p>
-            <p>{ratingAvg}</p>
-            <p>{reviews}</p>
-          </div>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary" onClick={handleInstalledApp}>
-              {install ? "Installed" : `Install Now (${size}MB)`}
-            </button>
-          </div>
-        </div>
-      </div> */}
-
       <div className="flex gap-4 items-center border-b rounded-xl p-4 mb-4">
         <figure className="w-[35%] h-[35%] overflow-hidden mt-2">
           <img className="w-full object-cover p-2 " src={image} alt="" />
@@ -79,7 +59,12 @@ const AppDetails = () => {
         <div className="space-y-8">
           <div className="border-b-1">
             <h1 className="font-bold">{title}</h1>
-            <p className="pb-2">Developed by <span className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">{companyName}</span></p>
+            <p className="pb-2">
+              Developed by{" "}
+              <span className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">
+                {companyName}
+              </span>
+            </p>
           </div>
           <div className="flex justify-between items-center">
             <div>
@@ -105,15 +90,18 @@ const AppDetails = () => {
             </div>
           </div>
           <div>
-            <button className="btn bg-gradient-to-r from-[#54CF68] to-[#00827A] text-white" onClick={handleInstalledApp}>
+            <button
+              className="btn bg-gradient-to-r from-[#54CF68] to-[#00827A] text-white"
+              onClick={handleInstalledApp}
+            >
               {install ? "Installed" : `Install Now (${size}MB)`}
             </button>
           </div>
         </div>
       </div>
 
-      <div>
-        <BarChart
+      {/* <div>
+        <BarChart 
           width={600}
           height={400}
           data={[...app.ratings].reverse()}
@@ -129,6 +117,26 @@ const AppDetails = () => {
             activeBar={<Rectangle fill="pink" stroke="blue" />}
           />
         </BarChart>
+      </div> */}
+
+      <div className="w-full h-[400px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            data={[...app.ratings].reverse()}
+            layout="vertical"
+            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis type="number" />
+            <YAxis dataKey="name" type="category" />
+            <Tooltip />
+            <Bar
+              dataKey="count"
+              fill="#8884d8"
+              activeBar={<Rectangle fill="pink" stroke="blue" />}
+            />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
 
       <div>

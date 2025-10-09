@@ -9,27 +9,27 @@ const State = () => {
       <h1 className="text-2xl font-bold text-center pt-7" >
         Trusted by Millions, Built for You
       </h1>
-      <div className="flex justify-center items-center gap-5 p-3">
+      <div className="flex justify-center items-center md:gap-5 md:p-3">
         <div className="space-y-2 flex flex-col items-center justify-center">
           <p ><small>Total Downloads</small></p>
           <h1 className="text-3xl font-bold">
             27.8M
           </h1>
-          <p>21% more than last month</p>
+          <p className="text-[12px] text-center">21% more than last month</p>
         </div>
         <div className="space-y-2 flex flex-col items-center justify-center">
           <p><small>Total Reviews</small></p>
           <h1 className="text-3xl font-bold">
             906k
           </h1>
-          <p>46% more than last month</p>
+          <p className="text-[12px] text-center">46% more than last month</p>
         </div>
         <div className="space-y-2 flex flex-col items-center justify-center">
           <p><small>Active Apps</small></p>
           <h1 className="text-3xl font-bold">
             132+
           </h1>
-          <p className="text-[12px]">31% more than last month</p>
+          <p className="text-[12px] text-center">31% more than last month</p>
         </div>
       </div>
     </div>

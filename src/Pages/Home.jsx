@@ -4,10 +4,12 @@ import AppCard from "../Components/AppCard";
 import Header from "../Components/Header";
 import State from "../Components/State";
 import { Link } from "react-router";
+import LoadingSpinner from "../Components/loadingSpinner";
 
 const Home = () => {
-  const { apps } = useApps();
+  const { apps ,loading } = useApps();
   const trendingApps = apps.slice(0,8)
+  if(loading) return <LoadingSpinner/>
 
   return (
     <div>
@@ -17,7 +19,7 @@ const Home = () => {
         <h2 className="text-2xl font-bold">Trending Apps</h2>
         <p><small>Explore All Trending Apps on the Market developed by us</small></p>
       </div>
-      <div className="grid grid-cols-4 gap-5 p-5 mx-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-5 md:p-5 mx-5 md:mx-10">
         {trendingApps.map((app) => (<AppCard key={app.id}
         app={app}></AppCard>
           

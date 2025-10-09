@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Download, Star, ThumbsUp } from "lucide-react";
+import useApps from "../Hooks/useApps";
+import LoadingSpinner from "../Components/loadingSpinner";
 
 const InstallesApp = () => {
   const [installedApps, setInstalledApps] = useState([]);
   const [sortOrder, setSortOrder] = useState("none");
+  const {loading} = useApps
 
   useEffect(() => {
     const savedList = JSON.parse(localStorage.getItem("installedApp"));
@@ -40,6 +43,8 @@ const InstallesApp = () => {
     localStorage.setItem("installedApp", JSON.stringify(updatedApps));
     toast("App Uninstalled");
   };
+
+  if (loading) return <LoadingSpinner/>
 
   return (
     <div>

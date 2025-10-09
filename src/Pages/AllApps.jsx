@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import useApps from "../Hooks/useApps";
 import AppCard from "../Components/AppCard";
+import LoadingSpinner from "../Components/loadingSpinner";
 
 const AllApps = () => {
   // const { apps } = useApps();
-  const { apps = [] } = useApps() || {};
+  const { apps = [],loading } = useApps() || {};
   const [search, setSearch] = useState("");
   const term = search.trim().toLowerCase();
   const searchApps = term
     ? apps.filter((app) => app.title.toLowerCase().includes(term))
     : apps;
 
-    
+    if (loading) {
+    return <LoadingSpinner/>;
+  }
 
   console.log();
   return (
