@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
+import { Download } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 
 const AppCard = ({ app }) => {
@@ -12,10 +14,10 @@ const AppCard = ({ app }) => {
     
     <div>
         <Link to={`/allApps/${app.id}`}>
-        <div className="card bg-base-100 border shadow-sm hover:scale-105 transition ease-in-out p-3" onClick={`/allApps/${app.id}`}>
-        <figure className="h-52 overflow-hidden">
+        <div className="card bg-base-100 border shadow-sm hover:scale-105 transition ease-in-out " onClick={`/allApps/${app.id}`}>
+        <figure className="h-40 overflow-hidden mt-2">
           <img
-          className="w-full object-cover"
+          className="w-full object-cover p-2 "
             src={app.image}
             alt="Shoes"
           />
@@ -26,9 +28,11 @@ const AppCard = ({ app }) => {
             A card component has a figure, a body part, and inside body there
             are title and actions parts
           </p> */}
-          <div className="card-actions justify-between">
-            <button className="btn btn-primary">{app.downloads}</button>
-            <button className="btn btn-primary">{app.ratingAvg}</button>
+          <div className="card-actions justify-between items-center">
+            <button className="flex items-center gap-2 w-10 text-[#00D390] text-[10px]">
+              <Download className="w-8 h-8" />
+              {app.downloads}</button>
+            <button className="flex items-center gap-2 w-10 text-[#FF8811] text-[10px]"><Star className="fill-[#FF8811] w-2 h-2" />{app.ratingAvg}</button>
           </div>
         </div>
       </div>

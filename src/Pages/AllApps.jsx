@@ -44,7 +44,7 @@ const AllApps = () => {
           ❌ No apps found
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 p-4">
+        <div className="px-5 mx-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-4">
           {searchApps.map((app) => (
             <AppCard key={app.id} app={app} />
           ))}

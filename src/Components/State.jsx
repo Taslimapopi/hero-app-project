@@ -18,18 +18,18 @@ const State = () => {
           <p>21% more than last month</p>
         </div>
         <div className="space-y-2 flex flex-col items-center justify-center">
-          <p><small>Total Downloads</small></p>
+          <p><small>Total Reviews</small></p>
           <h1 className="text-3xl font-bold">
-            27.8M
+            906k
           </h1>
-          <p>21% more than last month</p>
+          <p>46% more than last month</p>
         </div>
         <div className="space-y-2 flex flex-col items-center justify-center">
-          <p><small>Total Downloads</small></p>
+          <p><small>Active Apps</small></p>
           <h1 className="text-3xl font-bold">
-            27.8M
+            132+
           </h1>
-          <p>21% more than last month</p>
+          <p className="text-[12px]">31% more than last month</p>
         </div>
       </div>
     </div>
